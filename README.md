@@ -1,2 +1,3 @@
 # hwinfo_summarize
-Summarize the .HTM report files from HWiNFO
+Chrome App to Summarize the .HTM report files from HWiNFO.
+Soon to be published.
