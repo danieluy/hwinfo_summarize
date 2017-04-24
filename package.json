@@ -1,0 +1,14 @@
+{
+  "name": "summarize_hwinfo",
+  "version": "0.1.0",
+  "description": "Summarizes the .HTM report files from HWiNFO",
+  "main": "null",
+  "scripts": {
+    "start": "webpack --config ./webpack.config.js --watch"
+  },
+  "author": "www.danielsosa.uy/dev",
+  "license": "MIT",
+  "devDependencies": {
+    "cheerio": "^0.22.0"
+  }
+}
