@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 94);
+/******/ 	return __webpack_require__(__webpack_require__.s = 96);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -137,8 +137,8 @@ if (typeof Object.create === 'function') {
 
 
 
-var base64 = __webpack_require__(44)
-var ieee754 = __webpack_require__(72)
+var base64 = __webpack_require__(45)
+var ieee754 = __webpack_require__(74)
 var isArray = __webpack_require__(36)
 
 exports.Buffer = Buffer
@@ -2007,12 +2007,12 @@ function forEach(xs, f) {
 var DomUtils = module.exports;
 
 [
+	__webpack_require__(64),
+	__webpack_require__(65),
 	__webpack_require__(62),
 	__webpack_require__(63),
-	__webpack_require__(60),
 	__webpack_require__(61),
-	__webpack_require__(59),
-	__webpack_require__(58)
+	__webpack_require__(60)
 ].forEach(function(ext){
 	Object.keys(ext).forEach(function(key){
 		DomUtils[key] = ext[key].bind(DomUtils);
@@ -2025,7 +2025,7 @@ var DomUtils = module.exports;
 /***/ (function(module, exports, __webpack_require__) {
 
 var Parser = __webpack_require__(33),
-    DomHandler = __webpack_require__(56);
+    DomHandler = __webpack_require__(58);
 
 function defineProp(name, value){
 	delete module.exports[name];
@@ -2039,22 +2039,22 @@ module.exports = {
 	ElementType: __webpack_require__(10),
 	DomHandler: DomHandler,
 	get FeedHandler(){
-		return defineProp("FeedHandler", __webpack_require__(69));
+		return defineProp("FeedHandler", __webpack_require__(71));
 	},
 	get Stream(){
-		return defineProp("Stream", __webpack_require__(71));
+		return defineProp("Stream", __webpack_require__(73));
 	},
 	get WritableStream(){
 		return defineProp("WritableStream", __webpack_require__(35));
 	},
 	get ProxyHandler(){
-		return defineProp("ProxyHandler", __webpack_require__(70));
+		return defineProp("ProxyHandler", __webpack_require__(72));
 	},
 	get DomUtils(){
 		return defineProp("DomUtils", __webpack_require__(4));
 	},
 	get CollectingHandler(){
-		return defineProp("CollectingHandler", __webpack_require__(68));
+		return defineProp("CollectingHandler", __webpack_require__(70));
 	},
 	// For legacy support
 	DefaultHandler: DomHandler,
@@ -3655,11 +3655,11 @@ var parse = __webpack_require__(11),
  */
 
 var api = [
-  __webpack_require__(45),
-  __webpack_require__(49),
+  __webpack_require__(47),
+  __webpack_require__(51),
+  __webpack_require__(50),
   __webpack_require__(48),
-  __webpack_require__(46),
-  __webpack_require__(47)
+  __webpack_require__(49)
 ];
 
 /*
@@ -3799,7 +3799,7 @@ var serialize = __webpack_require__(19),
     select = __webpack_require__(27),
     parse = __webpack_require__(11),
     _ = {
-      merge: __webpack_require__(76),
+      merge: __webpack_require__(78),
       defaults: __webpack_require__(38)
     };
 
@@ -4006,7 +4006,7 @@ var DomUtils    = __webpack_require__(4),
     hasAttrib   = DomUtils.hasAttrib,
     getName     = DomUtils.getName,
     getAttribute= DomUtils.getAttributeValue,
-    getNCheck   = __webpack_require__(82),
+    getNCheck   = __webpack_require__(84),
     checkAttrib = __webpack_require__(28).rules.equals,
     BaseFuncs   = __webpack_require__(7),
     trueFunc    = BaseFuncs.trueFunc,
@@ -4386,8 +4386,8 @@ module.exports = {
 /*
   Module dependencies
 */
-var ElementType = __webpack_require__(55);
-var entities = __webpack_require__(64);
+var ElementType = __webpack_require__(57);
+var entities = __webpack_require__(66);
 
 /*
   Boolean Attributes
@@ -8280,7 +8280,7 @@ util.inherits = __webpack_require__(1);
 
 /*<replacement>*/
 var internalUtil = {
-  deprecate: __webpack_require__(93)
+  deprecate: __webpack_require__(95)
 };
 /*</replacement>*/
 
@@ -8795,7 +8795,7 @@ function CorkedRequest(state) {
     }
   };
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14), __webpack_require__(92).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14), __webpack_require__(94).setImmediate))
 
 /***/ }),
 /* 26 */
@@ -8807,7 +8807,7 @@ exports.Readable = exports;
 exports.Writable = __webpack_require__(25);
 exports.Duplex = __webpack_require__(3);
 exports.Transform = __webpack_require__(40);
-exports.PassThrough = __webpack_require__(85);
+exports.PassThrough = __webpack_require__(87);
 
 
 /***/ }),
@@ -8826,7 +8826,7 @@ var Pseudos       = __webpack_require__(18),
     getChildren   = DomUtils.getChildren,
     removeSubsets = DomUtils.removeSubsets,
     falseFunc     = __webpack_require__(7).falseFunc,
-    compile       = __webpack_require__(51),
+    compile       = __webpack_require__(53),
     compileUnsafe = compile.compileUnsafe,
     compileToken  = compile.compileToken;
 
@@ -9133,7 +9133,7 @@ Object.keys(domLvl1).forEach(function(key) {
 /* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var decodeMap = __webpack_require__(67);
+var decodeMap = __webpack_require__(69);
 
 module.exports = decodeCodePoint;
 
@@ -10552,7 +10552,7 @@ Tokenizer.prototype._emitPartial = function(value){
 module.exports = Stream;
 
 var Parser = __webpack_require__(33),
-    WritableStream = __webpack_require__(91).Writable || __webpack_require__(95).Writable,
+    WritableStream = __webpack_require__(93).Writable || __webpack_require__(97).Writable,
     StringDecoder = __webpack_require__(23).StringDecoder,
     Buffer = __webpack_require__(2).Buffer;
 
@@ -11938,7 +11938,7 @@ util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(96);
+var debugUtil = __webpack_require__(98);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -11947,7 +11947,7 @@ if (debugUtil && debugUtil.debuglog) {
 }
 /*</replacement>*/
 
-var BufferList = __webpack_require__(86);
+var BufferList = __webpack_require__(88);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -13033,23 +13033,6 @@ module.exports = __webpack_require__(12).EventEmitter;
 /* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Export cheerio (with )
- */
-
-exports = module.exports = __webpack_require__(16);
-
-/*
-  Export the version
-*/
-
-exports.version = __webpack_require__(50).version;
-
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 
 module.exports = (function () {
@@ -13098,7 +13081,201 @@ module.exports = (function () {
 })()
 
 /***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+
+module.exports = (function () {
+
+  function renderFile(data) {
+
+    var wrapper = document.createElement('div');
+
+    var title = document.createElement('h2');
+    title.textContent = data.name;
+
+    var name = document.createElement('div');
+    var name_label = document.createElement('label');
+    var name_data = document.createElement('p');
+    name_label.textContent = 'PC User:';
+    name_data.textContent = data.user;
+    name.appendChild(name_label);
+    name.appendChild(name_data);
+    name.classList.add('card');
+
+    var os = document.createElement('div');
+    var os_label = document.createElement('label');
+    var os_data = document.createElement('p');
+    os_label.textContent = 'Operating System:';
+    os_data.textContent = data.os;
+    os.appendChild(os_label);
+    os.appendChild(os_data);
+    os.classList.add('card');
+
+    var motherboard = document.createElement('div');
+    var motherboard_label = document.createElement('label');
+    var motherboard_data = document.createElement('p');
+    var motherboard_ul = document.createElement('ul');
+    var motherboard_li = document.createElement('li');
+    motherboard_label.textContent = 'Motherboard:';
+    motherboard_data.textContent = data.motherboard.model;
+    motherboard_li.textContent = 'Chipset: ' + data.motherboard.chipset;
+    motherboard.appendChild(motherboard_label);
+    motherboard.appendChild(motherboard_data);
+    motherboard_ul.appendChild(motherboard_li);
+    motherboard.appendChild(motherboard_ul);
+    motherboard.classList.add('card');
+
+    var processor = document.createElement('div');
+    var processor_label = document.createElement('label');
+    var processor_data = document.createElement('p');
+    var processor_ul = document.createElement('ul');
+    var processor_li = document.createElement('li');
+    processor_label.textContent = 'Processor:';
+    processor_data.textContent = data.processor.name;
+    processor_li.textContent = 'Cores: ' + data.processor.cores + ' x ' + data.processor.logical + ' ( physical x logical )';
+    processor.appendChild(processor_label);
+    processor.appendChild(processor_data);
+    processor_ul.appendChild(processor_li);
+    processor.appendChild(processor_ul);
+    processor.classList.add('card');
+
+    var processor = document.createElement('div');
+    var processor_label = document.createElement('label');
+    var processor_data = document.createElement('p');
+    var processor_ul = document.createElement('ul');
+    var processor_li = document.createElement('li');
+    processor_label.textContent = 'Processor:';
+    processor_data.textContent = data.processor.name;
+    processor_li.textContent = 'Cores: ' + data.processor.cores + ' x ' + data.processor.logical + ' ( physical x logical )';
+    processor.appendChild(processor_label);
+    processor.appendChild(processor_data);
+    processor_ul.appendChild(processor_li);
+    processor.appendChild(processor_ul);
+    processor.classList.add('card');
+
+    var memory = document.createElement('div');
+    var memory_label = document.createElement('label');
+    var memory_data = document.createElement('p');
+    var memory_ul = document.createElement('ul');
+    var memory_li = document.createElement('li');
+    memory_label.textContent = 'RAM memory:';
+    memory_data.textContent = (data.ram_memory.total_MB / 1024) + 'GB';
+    memory_li.textContent = 'Slots: ' + data.ram_memory.slots.length;
+    memory.appendChild(memory_label);
+    memory.appendChild(memory_data);
+    memory_ul.appendChild(memory_li);
+    memory_ul.appendChild(getMemoryDevicesDOM(data.ram_memory.slots));
+    memory.appendChild(memory_ul);
+    memory.classList.add('card');
+
+    wrapper.appendChild(title);
+    wrapper.appendChild(name);
+    wrapper.appendChild(os);
+    wrapper.appendChild(motherboard);
+    wrapper.appendChild(processor);
+    wrapper.appendChild(memory);
+
+    render(wrapper);
+  }
+  function getMemoryDevicesDOM(devices) {
+    var slots_ol = document.createElement('ol');
+    devices.forEach(device => {
+      var slot_li = document.createElement('li');
+      slot_li.textContent = device.size.trim() === '0 MBytes' ? 'Libre' : device.size + ' | ' + device.type + ' | ' + device.speed + ' (' + device.manufacturer + ')';
+      slots_ol.appendChild(slot_li);
+    })
+    return slots_ol;
+  }
+  function render(dom) {
+    var output = document.getElementById('output');
+    output.innerHTML = '';
+    output.appendChild(dom);
+  }
+  return {
+    renderFile: renderFile
+  }
+})();
+
+/***/ }),
 /* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var cheerio = __webpack_require__(46);
+module.exports = (function () {
+
+
+  function parseFile(string_data) {
+    var $ = cheerio.load(string_data);
+    return parsePcInfo($);
+  }
+
+  function parsePcInfo($) {
+    const pc_info = {
+      name: '',
+      os: '',
+      user: '',
+      processor: { packages: 0, cores: 0, logical: 0, name: '', frequency_MHz: 0 },
+      motherboard: { model: '', chipset: '' },
+      ram_memory: { total_MB: 0, slots: [] }
+    }
+    $('td').each((i, td) => {
+      const label = $(td).text();
+      const txt = $(td).next().text().trim();
+      switch (label) {
+        case 'Computer Name:': pc_info.name = txt; break;
+        case 'Operating System:': pc_info.os = txt; break;
+        case 'Current User Name:': pc_info.user = txt; break;
+        case 'CPU Brand Name:': pc_info.processor.name = txt; break;
+        case 'Original Processor Frequency [MHz]:': pc_info.processor.frequency_MHz = parseNumber(txt); break;
+        case 'Number Of Processor Packages (Physical):': pc_info.processor.packages = parseNumber(txt); break;
+        case 'Number Of Processors Cores:': pc_info.processor.cores = parseNumber(txt); break;
+        case 'Number Of Logical Processors:': pc_info.processor.logical = parseNumber(txt); break;
+        case 'Motherboard Model:': pc_info.motherboard.model = txt; break;
+        case 'Motherboard Chipset:': pc_info.motherboard.chipset = txt; break;
+        case 'Total Memory Size [MB]:': pc_info.ram_memory.total_MB = parseNumber(txt); break;
+        case 'Memory Device': pc_info.ram_memory.slots.push(parseMemoryDevice($, $(td).parent().next().next())); break;
+        default: break;
+      }
+    })
+    return pc_info;
+  }
+  function parseNumber(val) {
+    if (isNaN(val))
+      return null;
+    return parseFloat(val);
+  }
+  function parseMemoryDevice($, table) {
+    const memory_device = {}
+    $(table, 'td')
+      .text()
+      .split('\n')
+      .map(text => text.trim().split(':'))
+      .forEach(tuple => {
+        switch (tuple[0]) {
+          case 'Manufacturer': memory_device.manufacturer = tuple[1]; break;
+          case 'Device Size': memory_device.size = tuple[1]; break;
+          case 'Device Type': memory_device.type = tuple[1]; break;
+          case 'Memory Speed': memory_device.speed = tuple[1]; break;
+          default: break;
+        }
+      })
+    return memory_device;
+  }
+
+  return {
+    parseFile: parseFile
+  }
+
+})()
+
+/***/ }),
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13219,7 +13396,24 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Export cheerio (with )
+ */
+
+exports = module.exports = __webpack_require__(16);
+
+/*
+  Export the version
+*/
+
+exports.version = __webpack_require__(52).version;
+
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(17),
@@ -13234,7 +13428,7 @@ var $ = __webpack_require__(17),
     _ = {
       forEach: __webpack_require__(13),
       extend: __webpack_require__(37),
-      some: __webpack_require__(80)
+      some: __webpack_require__(82)
     },
 
   // Lookup table for coercing string data-* attributes to their corresponding
@@ -13720,12 +13914,12 @@ exports.is = function (selector) {
 
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var domEach = __webpack_require__(8).domEach,
     _ = {
-      pick: __webpack_require__(77),
+      pick: __webpack_require__(79),
     };
 
 var toString = Object.prototype.toString;
@@ -13847,7 +14041,7 @@ function parse(styles) {
 
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://github.com/jquery/jquery/blob/2.1.3/src/manipulation/var/rcheckableType.js
@@ -13856,7 +14050,7 @@ var submittableSelector = 'input,select,textarea,keygen',
     r20 = /%20/g,
     rCRLF = /\r?\n/g,
     _ = {
-      map: __webpack_require__(75)
+      map: __webpack_require__(77)
     };
 
 exports.serialize = function() {
@@ -13918,7 +14112,7 @@ exports.serializeArray = function() {
 
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var parse = __webpack_require__(11),
@@ -13931,7 +14125,7 @@ var parse = __webpack_require__(11),
     isHtml = utils.isHtml,
     slice = Array.prototype.slice,
     _ = {
-      flatten: __webpack_require__(74),
+      flatten: __webpack_require__(76),
       bind: __webpack_require__(22),
       forEach: __webpack_require__(13)
     };
@@ -14349,7 +14543,7 @@ exports.clone = function() {
 
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var select = __webpack_require__(27),
@@ -14360,9 +14554,9 @@ var select = __webpack_require__(27),
     _ = {
       bind: __webpack_require__(22),
       forEach: __webpack_require__(13),
-      reject: __webpack_require__(79),
-      filter: __webpack_require__(73),
-      reduce: __webpack_require__(78)
+      reject: __webpack_require__(81),
+      filter: __webpack_require__(75),
+      reduce: __webpack_require__(80)
     };
 
 exports.find = function(selectorOrHaystack) {
@@ -14784,7 +14978,7 @@ exports.addBack = function(selector) {
 
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -14929,7 +15123,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -14940,11 +15134,11 @@ module.exports = compile;
 module.exports.compileUnsafe = compileUnsafe;
 module.exports.compileToken = compileToken;
 
-var parse       = __webpack_require__(54),
+var parse       = __webpack_require__(56),
     DomUtils    = __webpack_require__(4),
     isTag       = DomUtils.isTag,
-    Rules       = __webpack_require__(52),
-    sortRules   = __webpack_require__(53),
+    Rules       = __webpack_require__(54),
+    sortRules   = __webpack_require__(55),
     BaseFuncs   = __webpack_require__(7),
     trueFunc    = BaseFuncs.trueFunc,
     falseFunc   = BaseFuncs.falseFunc,
@@ -15127,7 +15321,7 @@ filters.matches = function(next, token, options, context){
 
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var DomUtils    = __webpack_require__(4),
@@ -15221,7 +15415,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = sortByProcedure;
@@ -15307,7 +15501,7 @@ function getProcedure(token){
 
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15581,7 +15775,7 @@ function addToken(subselects, tokens){
 
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports) {
 
 //Types of elements found in the DOM
@@ -15600,14 +15794,14 @@ module.exports = {
 };
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ElementType = __webpack_require__(10);
 
 var re_whitespace = /\s+/g;
 var NodePrototype = __webpack_require__(30);
-var ElementPrototype = __webpack_require__(57);
+var ElementPrototype = __webpack_require__(59);
 
 function DomHandler(callback, options, elementCB){
 	if(typeof callback === "object"){
@@ -15788,7 +15982,7 @@ module.exports = DomHandler;
 
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // DOM-Level-1-compliant structure
@@ -15814,7 +16008,7 @@ Object.keys(domLvl1).forEach(function(key) {
 
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports) {
 
 // removeSubsets
@@ -15961,7 +16155,7 @@ exports.uniqueSort = function(nodes) {
 
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ElementType = __webpack_require__(10);
@@ -16054,7 +16248,7 @@ exports.getElementsByTagType = function(type, element, recurse, limit){
 
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports) {
 
 exports.removeElement = function(elem){
@@ -16137,7 +16331,7 @@ exports.prepend = function(elem, prev){
 
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isTag = __webpack_require__(10).isTag;
@@ -16237,7 +16431,7 @@ function findAll(test, elems){
 
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ElementType = __webpack_require__(10),
@@ -16265,7 +16459,7 @@ function getText(elem){
 
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports) {
 
 var getChildren = exports.getChildren = function(elem){
@@ -16295,11 +16489,11 @@ exports.getName = function(elem){
 
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var encode = __webpack_require__(66),
-    decode = __webpack_require__(65);
+var encode = __webpack_require__(68),
+    decode = __webpack_require__(67);
 
 exports.decode = function(data, level){
 	return (!level || level <= 0 ? decode.XML : decode.HTML)(data);
@@ -16334,7 +16528,7 @@ exports.escape = encode.escape;
 
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var entityMap = __webpack_require__(20),
@@ -16411,7 +16605,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var inverseXML = getInverseObj(__webpack_require__(21)),
@@ -16490,7 +16684,7 @@ exports.escape = escapeXML;
 
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -16525,7 +16719,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = CollectingHandler;
@@ -16586,7 +16780,7 @@ CollectingHandler.prototype.restart = function(){
 
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var index = __webpack_require__(5),
@@ -16687,7 +16881,7 @@ module.exports = FeedHandler;
 
 
 /***/ }),
-/* 70 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = ProxyHandler;
@@ -16719,7 +16913,7 @@ Object.keys(EVENTS).forEach(function(name){
 });
 
 /***/ }),
-/* 71 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = Stream;
@@ -16759,7 +16953,7 @@ Object.keys(EVENTS).forEach(function(name){
 });
 
 /***/ }),
-/* 72 */
+/* 74 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -16849,7 +17043,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -19222,7 +19416,7 @@ module.exports = filter;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)(module)))
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -19578,7 +19772,7 @@ module.exports = flatten;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -21951,7 +22145,7 @@ module.exports = map;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)(module)))
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -24165,7 +24359,7 @@ module.exports = merge;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)(module)))
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -24675,7 +24869,7 @@ module.exports = pick;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 78 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -27054,7 +27248,7 @@ module.exports = reduce;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)(module)))
 
 /***/ }),
-/* 79 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -29459,7 +29653,7 @@ module.exports = reject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)(module)))
 
 /***/ }),
-/* 80 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -31834,7 +32028,7 @@ module.exports = some;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)(module)))
 
 /***/ }),
-/* 81 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = compile;
@@ -31879,11 +32073,11 @@ function compile(parsed){
 }
 
 /***/ }),
-/* 82 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var parse = __webpack_require__(83),
-    compile = __webpack_require__(81);
+var parse = __webpack_require__(85),
+    compile = __webpack_require__(83);
 
 module.exports = function nthCheck(formula){
 	return compile(parse(formula));
@@ -31893,7 +32087,7 @@ module.exports.parse = parse;
 module.exports.compile = compile;
 
 /***/ }),
-/* 83 */
+/* 85 */
 /***/ (function(module, exports) {
 
 module.exports = parse;
@@ -31939,14 +32133,14 @@ function parse(formula){
 
 
 /***/ }),
-/* 84 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(3);
 
 
 /***/ }),
-/* 85 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -31978,7 +32172,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 };
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32048,28 +32242,28 @@ BufferList.prototype.concat = function (n) {
 };
 
 /***/ }),
-/* 87 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(26).PassThrough
 
 
 /***/ }),
-/* 88 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(26).Transform
 
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(25);
 
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -32262,7 +32456,7 @@ module.exports = __webpack_require__(25);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(14)))
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -32293,10 +32487,10 @@ var inherits = __webpack_require__(1);
 
 inherits(Stream, EE);
 Stream.Readable = __webpack_require__(26);
-Stream.Writable = __webpack_require__(89);
-Stream.Duplex = __webpack_require__(84);
-Stream.Transform = __webpack_require__(88);
-Stream.PassThrough = __webpack_require__(87);
+Stream.Writable = __webpack_require__(91);
+Stream.Duplex = __webpack_require__(86);
+Stream.Transform = __webpack_require__(90);
+Stream.PassThrough = __webpack_require__(89);
 
 // Backwards-compat with node 0.4.x
 Stream.Stream = Stream;
@@ -32395,7 +32589,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 
 /***/ }),
-/* 92 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -32448,13 +32642,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(90);
+__webpack_require__(92);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
-/* 93 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -32528,15 +32722,15 @@ function config (name) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 94 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var file = __webpack_require__(43);
-var parser = __webpack_require__(97);
-var output = __webpack_require__(98);
+var file = __webpack_require__(42);
+var parser = __webpack_require__(44);
+var output = __webpack_require__(43);
 var btn_open_file = document.getElementById('btn-open-file');
 
 function render(dom_string) {
@@ -32558,170 +32752,16 @@ function displayError(err) {
 btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, displayError));
 
 /***/ }),
-/* 95 */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-/* 96 */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
 /* 97 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-var cheerio = __webpack_require__(42);
-module.exports = (function () {
-
-
-  function parseFile(string_data) {
-    var $ = cheerio.load(string_data);
-    return parsePcInfo($);
-  }
-
-  function parsePcInfo($) {
-    const pc_info = {
-      name: '',
-      os: '',
-      user: '',
-      processor: { packages: 0, cores: 0, logical: 0, name: '', frequency_MHz: 0 },
-      motherboard: { model: '', chipset: '' },
-      ram_memory: { total_MB: 0, slots: [] }
-    }
-    $('td').each((i, td) => {
-      const label = $(td).text();
-      const txt = $(td).next().text().trim();
-      switch (label) {
-        case 'Computer Name:': pc_info.name = txt; break;
-        case 'Operating System:': pc_info.os = txt; break;
-        case 'Current User Name:': pc_info.user = txt; break;
-        case 'CPU Brand Name:': pc_info.processor.name = txt; break;
-        case 'Original Processor Frequency [MHz]:': pc_info.processor.frequency_MHz = parseNumber(txt); break;
-        case 'Number Of Processor Packages (Physical):': pc_info.processor.packages = parseNumber(txt); break;
-        case 'Number Of Processors Cores:': pc_info.processor.cores = parseNumber(txt); break;
-        case 'Number Of Logical Processors:': pc_info.processor.logical = parseNumber(txt); break;
-        case 'Motherboard Model:': pc_info.motherboard.model = txt; break;
-        case 'Motherboard Chipset:': pc_info.motherboard.chipset = txt; break;
-        case 'Total Memory Size [MB]:': pc_info.ram_memory.total_MB = parseNumber(txt); break;
-        case 'Memory Device': pc_info.ram_memory.slots.push(parseMemoryDevice($, $(td).parent().next().next())); break;
-        default: break;
-      }
-    })
-    return pc_info;
-  }
-  function parseNumber(val) {
-    if (isNaN(val))
-      return null;
-    return parseFloat(val);
-  }
-  function parseMemoryDevice($, table) {
-    const memory_device = {}
-    $(table, 'td')
-      .text()
-      .split('\n')
-      .map(text => text.trim().split(':'))
-      .forEach(tuple => {
-        switch (tuple[0]) {
-          case 'Manufacturer': memory_device.manufacturer = tuple[1]; break;
-          case 'Device Size': memory_device.size = tuple[1]; break;
-          case 'Device Type': memory_device.type = tuple[1]; break;
-          case 'Memory Speed': memory_device.speed = tuple[1]; break;
-          default: break;
-        }
-      })
-    return memory_device;
-  }
-
-  return {
-    parseFile: parseFile
-  }
-
-})()
+/* (ignored) */
 
 /***/ }),
 /* 98 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-
-module.exports = (function () {
-
-  function renderFile(data) {
-
-    var wrapper = document.createElement('div');
-
-    var h1 = document.createElement('h1');
-    h1.textContent = data.file_name;
-
-    var name = document.createElement('div');
-    var name_label = document.createElement('label');
-    var name_data = document.createElement('p');
-    name_label.textContent = 'PC User:';
-    name_data.textContent = data.user;
-    name.appendChild(name_label);
-    name.appendChild(name_data);
-    name.classList.add('card');
-
-    var os = document.createElement('div');
-    var os_label = document.createElement('label');
-    var os_data = document.createElement('p');
-    os_label.textContent = 'Operating System:';
-    os_data.textContent = data.os;
-    os.appendChild(os_label);
-    os.appendChild(os_data);
-    os.classList.add('card');
-
-    wrapper.appendChild(h1);
-    wrapper.appendChild(name);
-    wrapper.appendChild(os);
-
-    render(wrapper);
-
-    /*
-
-    <div class="card">
-      <label>Placa:</label>
-      <p>${parsed_file.motherboard.model}</p>
-      <ul>
-        <li>Chipset: ${parsed_file.motherboard.chipset}</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <label>Procesador:</label>
-      <p>${parsed_file.processor.name}</p>
-      <ul>
-        <li>Núcleos: ${parsed_file.processor.cores} x ${parsed_file.processor.logical} <i>(cores x logical)</i></li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <label>Memoria RAM:</label>
-      <p>${parsed_file.ram_memory.total_MB / 1024}GB RAM</p>
-      <ul>
-        <li>Bancos: ${parsed_file.ram_memory.slots.length}</li>
-        <ul>
-          ${getMemoryDevicesDOM(parsed_file.ram_memory.slots)}
-        </ul>
-      </ul>
-    </div>*/
-  }
-  function render(dom) {
-    var output = document.getElementById('output');
-    output.innerHTML = '';
-    output.appendChild(dom);
-  }
-  return {
-    renderFile: renderFile
-  }
-})();
+/* (ignored) */
 
 /***/ })
 /******/ ]);

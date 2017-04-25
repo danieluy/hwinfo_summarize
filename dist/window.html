@@ -4,15 +4,33 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" type="text/css" href="roboto.css" />
   <link rel="stylesheet" type="text/css" href="styles.css" />
   <title>HWiNfo Summarize</title>
 </head>
 
 <body>
-  <div>HWiNfo Summarize</div>
-  <button id="btn-open-file">Open</button>
+  <nav>
+    <div class="nav-title">
+      <img class="nav-title-img" src="app-logo.png" alt="Application logo">
+      <h1 class="nav-title-txt">HWiNfo Summarize</h1>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-action" id="btn-open-file">
+        <svg fill="#888888" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="output-wrapper">
+    <div id="output"></div>
+  </div>
+
   <script src="app.js"></script>
-  <div id="output"></div>
+
 </body>
 
 </html>

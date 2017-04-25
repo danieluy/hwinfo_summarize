@@ -1,0 +1,18 @@
+[Summarize HWiNFO]
+
+#   T - ToDo                        #
+#   P - Added something (plus)      #
+#   M - Removed something (minus)   #
+#   R - Refactoring                 #
+#   B - Bug                         #
+#   F - Bug fix                     #
+
+# ToDo
+	00000000 | T | Window controls
+	00000000 | T | Finish selecting and adding Roboto font types
+v0.1.0
+	20170425 | P | Added Roboto font locally
+	20170425 | P | Global styles
+	20170425 | P | Window not resizable and other UI tweaks
+	20170425 | P | Display information completed
+	20170425 | P | Started tracking changes
