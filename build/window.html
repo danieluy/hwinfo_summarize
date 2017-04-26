@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" type="text/css" href="roboto.css" />
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <title>HWiNfo Summarize</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-title">
+      <img class="nav-title-img" src="app-logo.png" alt="Application logo">
+      <h1 class="nav-title-txt">HWiNfo Summarize</h1>
+    </div>
+    <div class="nav-actions">
+      <div class="app-actions">
+        <button class="app-action button" id="btn-open-file">
+        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+        </svg>
+      </button>
+      </div>
+      <div class="window-actions">
+        <button class="window-action button" id="btn-minimize-window">
+        <svg height="15" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
+            <path d="M0-.75h24v24H0z" fill="none"/>
+        </svg>
+      </button>
+        <button class="window-action button" id="btn-close-window">
+        <svg height="15" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+      </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="output-wrapper">
+    <div id="output"></div>
+  </div>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>

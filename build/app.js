@@ -32732,6 +32732,8 @@ var file = __webpack_require__(42);
 var parser = __webpack_require__(44);
 var output = __webpack_require__(43);
 var btn_open_file = document.getElementById('btn-open-file');
+var btn_minimize_window = document.getElementById('btn-minimize-window');
+var btn_close_window = document.getElementById('btn-close-window');
 
 function render(dom_string) {
   document.getElementById('output').textContent = dom_string;
@@ -32748,8 +32750,18 @@ function displayError(err) {
   render(err.message);
 }
 
+function closeWindow(){
+  chrome.app.window.current().close();
+}
+
+function minimizeWindow(){
+  chrome.app.window.current().minimize();
+}
+
 // event listeners
 btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, displayError));
+btn_minimize_window.addEventListener('click', minimizeWindow);
+btn_close_window.addEventListener('click', closeWindow);
 
 /***/ }),
 /* 97 */

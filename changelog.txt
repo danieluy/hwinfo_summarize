@@ -8,9 +8,10 @@
 #   F - Bug fix                     #
 
 # ToDo
-	00000000 | T | Window controls
-	00000000 | T | Finish selecting and adding Roboto font types
+	00000000 | T | Add save functionality
 v0.1.0
+	20170426 | P | Rearrange top bar elements and dimensions
+	20170426 | P | Added window controls
 	20170425 | P | Added Roboto font locally
 	20170425 | P | Global styles
 	20170425 | P | Window not resizable and other UI tweaks

@@ -8,7 +8,7 @@
 body{
   width: 800px;
   height: 600px;
-  background-color: #f8f8f8;
+  background-color: #fafafa;
 }
 body, html {
   font-size: 100%;
@@ -16,48 +16,78 @@ body, html {
 
 nav{
   width: 100%;
-  height: 40px;
+  height: 60px;
   background-color: #ffffff;
   /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);*/
   display: flex;
-  justify-content: space-between;
   -webkit-app-region: drag;
 }
 .nav-title{
+  width: 215px;
   display: flex;
   align-items: center;
 }
 .nav-title-img{
-  width: 40px;
-  height: 40px;
-  padding: 5px;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
 }
 .nav-title-txt{
   font-size: 1rem;
   font-weight: 300;
 }
-.nav-action{
-  width: 40px;
-  height: 40px;
+.nav-actions{
+  width: 585px;
+  display: flex;
+  justify-content: space-between;
+}
+.app-action{
+  width: 60px;
+  height: 60px;
   padding: 10px;
   background-color: transparent;
   border-style: none;
   -webkit-app-region: no-drag;
+}
+.window-actions{
+  width: 48px;
+  height: 60px;
+  display: flex;
+  align-items: flex-start;
+}
+.window-action{
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  background-color: transparent;
+  border-style: none;
+  -webkit-app-region: no-drag;
+}
+
+.button:focus {
+  outline: 0;
+}
+.button > svg{
+  fill: #888888;
+  transition: fill 200ms linear;
+}
+.button:hover > svg{
+  fill: #333333;
 }
 
 #output{
   padding: 10px;
 }
 .output-wrapper{
-  height: 560px;
+  height: 540px;
   overflow-y: auto;
 }
 .card{
   padding: 5px;
   background-color: #ffffff;
-  margin-top: 5px;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 h2{
   font-size: 1.5rem;
