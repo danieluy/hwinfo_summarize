@@ -1,10 +1,29 @@
 "use strict";
 
+const html_output_template = require('./html-output-template');
 
 module.exports = (function () {
 
-  function renderFile(data) {
+  var output = document.getElementById('output');
 
+  function renderFile(data) {
+    render(parseDOM(data));
+  }
+
+  function render(DOM) {
+    output.innerHTML = '';
+    output.appendChild(DOM);
+  }
+
+  function stringifyDOM(data) {
+    if (data) {
+      console.log(html_output_template.replace('placeholder', parseDOM(data).innerHTML));
+    }
+    else
+      console.log('No data')
+  }
+
+  function parseDOM(data) {
     var wrapper = document.createElement('div');
 
     var title = document.createElement('h2');
@@ -92,8 +111,9 @@ module.exports = (function () {
     wrapper.appendChild(processor);
     wrapper.appendChild(memory);
 
-    render(wrapper);
+    return wrapper;
   }
+
   function getMemoryDevicesDOM(devices) {
     var slots_ol = document.createElement('ol');
     devices.forEach(device => {
@@ -103,12 +123,9 @@ module.exports = (function () {
     })
     return slots_ol;
   }
-  function render(dom) {
-    var output = document.getElementById('output');
-    output.innerHTML = '';
-    output.appendChild(dom);
-  }
+
   return {
-    renderFile: renderFile
+    renderFile: renderFile,
+    stringifyDOM: stringifyDOM
   }
 })();

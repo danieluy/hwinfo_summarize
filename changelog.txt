@@ -9,7 +9,10 @@
 
 # ToDo
 	00000000 | T | Add save functionality
+	00000000 | T | Define a different style for output html summary
 v0.1.0
+	20170427 | P | Working on outputting an html summary
+	20170427 | P | UI refinements
 	20170426 | P | Rearrange top bar elements and dimensions
 	20170426 | P | Added window controls
 	20170425 | P | Added Roboto font locally

@@ -38,8 +38,30 @@ module.exports = (function () {
 
   }
 
+  function saveFile(file_name, file_content, successHandler, errorHandler) {
+    selectFolderAndWriteFile(file_name, '.html', file_content, 'text/html', successHandler, errorHandler);
+  }
+
+  function selectFolderAndWriteFile(file_name, file_extension, file_content, file_type, successHandler, errorHandler) {
+    try {
+      chrome.fileSystem.chooseEntry({ type: 'openDirectory' }, function (entry) {
+        chrome.fileSystem.getWritableEntry(entry, function (entry) {
+          entry.getFile(file_name + file_extension, { create: true }, function (entry) {
+            entry.createWriter(function (writer) {
+              writer.write(new Blob([file_content], { type: file_type }));
+              successHandler();
+            });
+          });
+        });
+      });
+    } catch (error) {
+      errorHandler(error);
+    }
+  }
+
   return {
-    openFile: openFile
+    openFile: openFile,
+    saveFile: saveFile
   }
 
 })()

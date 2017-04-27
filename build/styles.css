@@ -71,6 +71,9 @@ nav{
   fill: #888888;
   transition: fill 200ms linear;
 }
+.button:active{
+  background-color: #eeeeee;
+}
 .button:hover > svg{
   fill: #333333;
 }

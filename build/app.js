@@ -13074,8 +13074,30 @@ module.exports = (function () {
 
   }
 
+  function saveFile(file_name, file_content, successHandler, errorHandler) {
+    selectFolderAndWriteFile(file_name, '.html', file_content, 'text/html', successHandler, errorHandler);
+  }
+
+  function selectFolderAndWriteFile(file_name, file_extension, file_content, file_type, successHandler, errorHandler) {
+    try {
+      chrome.fileSystem.chooseEntry({ type: 'openDirectory' }, function (entry) {
+        chrome.fileSystem.getWritableEntry(entry, function (entry) {
+          entry.getFile(file_name + file_extension, { create: true }, function (entry) {
+            entry.createWriter(function (writer) {
+              writer.write(new Blob([file_content], { type: file_type }));
+              successHandler();
+            });
+          });
+        });
+      });
+    } catch (error) {
+      errorHandler(error);
+    }
+  }
+
   return {
-    openFile: openFile
+    openFile: openFile,
+    saveFile: saveFile
   }
 
 })()
@@ -13087,11 +13109,30 @@ module.exports = (function () {
 "use strict";
 
 
+const html_output_template = __webpack_require__(99);
 
 module.exports = (function () {
 
-  function renderFile(data) {
+  var output = document.getElementById('output');
 
+  function renderFile(data) {
+    render(parseDOM(data));
+  }
+
+  function render(DOM) {
+    output.innerHTML = '';
+    output.appendChild(DOM);
+  }
+
+  function stringifyDOM(data) {
+    if (data) {
+      console.log(html_output_template.replace('placeholder', parseDOM(data).innerHTML));
+    }
+    else
+      console.log('No data')
+  }
+
+  function parseDOM(data) {
     var wrapper = document.createElement('div');
 
     var title = document.createElement('h2');
@@ -13179,8 +13220,9 @@ module.exports = (function () {
     wrapper.appendChild(processor);
     wrapper.appendChild(memory);
 
-    render(wrapper);
+    return wrapper;
   }
+
   function getMemoryDevicesDOM(devices) {
     var slots_ol = document.createElement('ol');
     devices.forEach(device => {
@@ -13190,13 +13232,10 @@ module.exports = (function () {
     })
     return slots_ol;
   }
-  function render(dom) {
-    var output = document.getElementById('output');
-    output.innerHTML = '';
-    output.appendChild(dom);
-  }
+
   return {
-    renderFile: renderFile
+    renderFile: renderFile,
+    stringifyDOM: stringifyDOM
   }
 })();
 
@@ -32734,27 +32773,31 @@ var output = __webpack_require__(43);
 var btn_open_file = document.getElementById('btn-open-file');
 var btn_minimize_window = document.getElementById('btn-minimize-window');
 var btn_close_window = document.getElementById('btn-close-window');
+var btn_save_file = document.getElementById('btn-save-file');
 
-function render(dom_string) {
-  document.getElementById('output').textContent = dom_string;
+var cache = {
+  input: null
 }
 
-function onFileOpen(data){
-  var parsed = parser.parseFile(data);
-  console.log(parsed);
-  output.renderFile(parsed);
+function onFileOpen(data) {
+  cache.input = parser.parseFile(data);
+  output.renderFile(cache.input);
+  console.log('onFileOpen', cache.input);
+}
+
+function displayMessage(message) {
+  console.log();
 }
 
 function displayError(err) {
   console.error(err.stack ? err.stack : err);
-  render(err.message);
 }
 
-function closeWindow(){
+function closeWindow() {
   chrome.app.window.current().close();
 }
 
-function minimizeWindow(){
+function minimizeWindow() {
   chrome.app.window.current().minimize();
 }
 
@@ -32762,6 +32805,10 @@ function minimizeWindow(){
 btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, displayError));
 btn_minimize_window.addEventListener('click', minimizeWindow);
 btn_close_window.addEventListener('click', closeWindow);
+// btn_save_file.addEventListener('click', file.saveFile.bind(null, 'File name', output.stringifyDOM(cache.input)));
+btn_save_file.addEventListener('click', function () { // can't bind output.stringifyDOM to cache.input because at binding time cache.input is null
+  output.stringifyDOM(cache.input);
+});
 
 /***/ }),
 /* 97 */
@@ -32774,6 +32821,41 @@ btn_close_window.addEventListener('click', closeWindow);
 /***/ (function(module, exports) {
 
 /* (ignored) */
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports) {
+
+module.exports =
+    '<html>' +
+    '<head>' +
+      '<meta charset="utf-8">' +
+      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+      '<link href="https: //fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">' +
+      '<title>HWiNFO Summarize</title>' +
+      '<style>' +
+        '*{' +
+          'font-family: Roboto, sans-serif;' +
+          'margin: 0;' +
+          'padding: 0;' +
+          'color: #555;' +
+        '}' +
+        'body{' +
+          'padding: 100px;' +
+          'background-color: #eee;' +
+        '}' +
+        'h1{' +
+          'font-size: 2.5rem;' +
+          'margin: 20px 0;' +
+        '}' +
+        '.card{padding:5px;background-color:#ffffff;margin-top:10px;border-radius:1px;box-shadow:01px2pxrgba(0,0,0,0.15);}h2{font-size:1.5rem;margin:10px0;font-weight:100;}label{font-size:.65rem;text-transform:uppercase;color:#333;font-weight:500;}p{font-size:1.0rem;padding:5px0;}ul,ol{padding:5px20px;}' +
+      '</style>' +
+    '</head>' +
+    '<body>' +
+      'placeholder' +
+    '</body>' +
+    '</html>';
+
 
 /***/ })
 /******/ ]);
