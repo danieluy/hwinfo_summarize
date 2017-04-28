@@ -7,23 +7,30 @@ module.exports = (function () {
   var output = document.getElementById('output');
 
   function renderFile(data) {
-    render(parseDOM(data));
+    if (!data)
+      throw new Error('Missing argument. Expected data:Object');
+    render(parseNode(data));
   }
 
-  function render(DOM) {
+  function render(node) {
+    console.log('render(node)', node)
+    if (!node)
+      throw new Error('Missing argument. Expected node:Node');
     output.innerHTML = '';
-    output.appendChild(DOM);
+    output.appendChild(node);
   }
 
-  function stringifyDOM(data) {
-    if (data) {
-      console.log(html_output_template.replace('placeholder', parseDOM(data).innerHTML));
-    }
-    else
-      console.log('No data')
+  function stringifyNode(data) {
+    if (!data)
+      throw new Error('Missing argument. Expected data:Object');
+    return html_output_template
+      .replace('pcnameplaceholder', data.name)
+      .replace('contentplaceholder', parseNode(data).innerHTML);
   }
 
-  function parseDOM(data) {
+  function parseNode(data) {
+    if (!data)
+      throw new Error('Missing argument. Expected data:Object');
     var wrapper = document.createElement('div');
 
     var title = document.createElement('h2');
@@ -126,6 +133,6 @@ module.exports = (function () {
 
   return {
     renderFile: renderFile,
-    stringifyDOM: stringifyDOM
+    stringifyNode: stringifyNode
   }
 })();

@@ -13,16 +13,19 @@ var cache = {
 }
 
 function onFileOpen(data) {
-  cache.input = parser.parseFile(data);
-  output.renderFile(cache.input);
-  console.log('onFileOpen', cache.input);
+    cache.input = parser.parseFile(data);
+    output.renderFile(cache.input);
 }
 
-function displayMessage(message) {
-  console.log();
+function onFileSaved(){
+  messageHandler('File Saved');
 }
 
-function displayError(err) {
+function messageHandler(message) {
+  console.log(message);
+}
+
+function errorHandler(err) {
   console.error(err.stack ? err.stack : err);
 }
 
@@ -34,11 +37,11 @@ function minimizeWindow() {
   chrome.app.window.current().minimize();
 }
 
-// event listeners
-btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, displayError));
+// Event listeners
+btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, errorHandler));
 btn_minimize_window.addEventListener('click', minimizeWindow);
 btn_close_window.addEventListener('click', closeWindow);
-// btn_save_file.addEventListener('click', file.saveFile.bind(null, 'File name', output.stringifyDOM(cache.input)));
-btn_save_file.addEventListener('click', function () { // can't bind output.stringifyDOM to cache.input because at binding time cache.input is null
-  output.stringifyDOM(cache.input);
+// Can't bind output.stringifyDOM to cache.input because at binding time cache.input is null
+btn_save_file.addEventListener('click', function () {
+  file.saveFile(cache.input.name, output.stringifyNode(cache.input), onFileSaved, errorHandler);
 });

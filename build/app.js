@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 96);
+/******/ 	return __webpack_require__(__webpack_require__.s = 97);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10552,7 +10552,7 @@ Tokenizer.prototype._emitPartial = function(value){
 module.exports = Stream;
 
 var Parser = __webpack_require__(33),
-    WritableStream = __webpack_require__(93).Writable || __webpack_require__(97).Writable,
+    WritableStream = __webpack_require__(93).Writable || __webpack_require__(98).Writable,
     StringDecoder = __webpack_require__(23).StringDecoder,
     Buffer = __webpack_require__(2).Buffer;
 
@@ -11938,7 +11938,7 @@ util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(98);
+var debugUtil = __webpack_require__(99);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -13109,30 +13109,37 @@ module.exports = (function () {
 "use strict";
 
 
-const html_output_template = __webpack_require__(99);
+const html_output_template = __webpack_require__(96);
 
 module.exports = (function () {
 
   var output = document.getElementById('output');
 
   function renderFile(data) {
-    render(parseDOM(data));
+    if (!data)
+      throw new Error('Missing argument. Expected data:Object');
+    render(parseNode(data));
   }
 
-  function render(DOM) {
+  function render(node) {
+    console.log('render(node)', node)
+    if (!node)
+      throw new Error('Missing argument. Expected node:Node');
     output.innerHTML = '';
-    output.appendChild(DOM);
+    output.appendChild(node);
   }
 
-  function stringifyDOM(data) {
-    if (data) {
-      console.log(html_output_template.replace('placeholder', parseDOM(data).innerHTML));
-    }
-    else
-      console.log('No data')
+  function stringifyNode(data) {
+    if (!data)
+      throw new Error('Missing argument. Expected data:Object');
+    return html_output_template
+      .replace('pcnameplaceholder', data.name)
+      .replace('contentplaceholder', parseNode(data).innerHTML);
   }
 
-  function parseDOM(data) {
+  function parseNode(data) {
+    if (!data)
+      throw new Error('Missing argument. Expected data:Object');
     var wrapper = document.createElement('div');
 
     var title = document.createElement('h2');
@@ -13235,7 +13242,7 @@ module.exports = (function () {
 
   return {
     renderFile: renderFile,
-    stringifyDOM: stringifyDOM
+    stringifyNode: stringifyNode
   }
 })();
 
@@ -32762,68 +32769,6 @@ function config (name) {
 
 /***/ }),
 /* 96 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var file = __webpack_require__(42);
-var parser = __webpack_require__(44);
-var output = __webpack_require__(43);
-var btn_open_file = document.getElementById('btn-open-file');
-var btn_minimize_window = document.getElementById('btn-minimize-window');
-var btn_close_window = document.getElementById('btn-close-window');
-var btn_save_file = document.getElementById('btn-save-file');
-
-var cache = {
-  input: null
-}
-
-function onFileOpen(data) {
-  cache.input = parser.parseFile(data);
-  output.renderFile(cache.input);
-  console.log('onFileOpen', cache.input);
-}
-
-function displayMessage(message) {
-  console.log();
-}
-
-function displayError(err) {
-  console.error(err.stack ? err.stack : err);
-}
-
-function closeWindow() {
-  chrome.app.window.current().close();
-}
-
-function minimizeWindow() {
-  chrome.app.window.current().minimize();
-}
-
-// event listeners
-btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, displayError));
-btn_minimize_window.addEventListener('click', minimizeWindow);
-btn_close_window.addEventListener('click', closeWindow);
-// btn_save_file.addEventListener('click', file.saveFile.bind(null, 'File name', output.stringifyDOM(cache.input)));
-btn_save_file.addEventListener('click', function () { // can't bind output.stringifyDOM to cache.input because at binding time cache.input is null
-  output.stringifyDOM(cache.input);
-});
-
-/***/ }),
-/* 97 */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-/* 98 */
-/***/ (function(module, exports) {
-
-/* (ignored) */
-
-/***/ }),
-/* 99 */
 /***/ (function(module, exports) {
 
 module.exports =
@@ -32832,7 +32777,7 @@ module.exports =
       '<meta charset="utf-8">' +
       '<meta name="viewport" content="width=device-width, initial-scale=1">' +
       '<link href="https: //fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">' +
-      '<title>HWiNFO Summarize</title>' +
+      '<title>pcnameplaceholder</title>' +
       '<style>' +
         '*{' +
           'font-family: Roboto, sans-serif;' +
@@ -32852,10 +32797,75 @@ module.exports =
       '</style>' +
     '</head>' +
     '<body>' +
-      'placeholder' +
+      'contentplaceholder' +
     '</body>' +
     '</html>';
 
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var file = __webpack_require__(42);
+var parser = __webpack_require__(44);
+var output = __webpack_require__(43);
+var btn_open_file = document.getElementById('btn-open-file');
+var btn_minimize_window = document.getElementById('btn-minimize-window');
+var btn_close_window = document.getElementById('btn-close-window');
+var btn_save_file = document.getElementById('btn-save-file');
+
+var cache = {
+  input: null
+}
+
+function onFileOpen(data) {
+    cache.input = parser.parseFile(data);
+    output.renderFile(cache.input);
+}
+
+function onFileSaved(){
+  messageHandler('File Saved');
+}
+
+function messageHandler(message) {
+  console.log(message);
+}
+
+function errorHandler(err) {
+  console.error(err.stack ? err.stack : err);
+}
+
+function closeWindow() {
+  chrome.app.window.current().close();
+}
+
+function minimizeWindow() {
+  chrome.app.window.current().minimize();
+}
+
+// Event listeners
+btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, errorHandler));
+btn_minimize_window.addEventListener('click', minimizeWindow);
+btn_close_window.addEventListener('click', closeWindow);
+// Can't bind output.stringifyDOM to cache.input because at binding time cache.input is null
+btn_save_file.addEventListener('click', function () {
+  file.saveFile(cache.input.name, output.stringifyNode(cache.input), onFileSaved, errorHandler);
+});
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports) {
+
+/* (ignored) */
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports) {
+
+/* (ignored) */
 
 /***/ })
 /******/ ]);
