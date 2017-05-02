@@ -7,6 +7,7 @@ var btn_open_file = document.getElementById('btn-open-file');
 var btn_minimize_window = document.getElementById('btn-minimize-window');
 var btn_close_window = document.getElementById('btn-close-window');
 var btn_save_file = document.getElementById('btn-save-file');
+var btn_display_info = document.getElementById('btn-display-info');
 
 var cache = {
   input: null
@@ -37,6 +38,10 @@ function minimizeWindow() {
   chrome.app.window.current().minimize();
 }
 
+function displayInfo(){
+  output.renderInfo(require('./modal_template.js'));
+}
+
 // Event listeners
 btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, errorHandler));
 btn_minimize_window.addEventListener('click', minimizeWindow);
@@ -45,3 +50,5 @@ btn_close_window.addEventListener('click', closeWindow);
 btn_save_file.addEventListener('click', function () {
   file.saveFile(cache.input.name, output.stringifyNode(cache.input), onFileSaved, errorHandler);
 });
+btn_display_info.addEventListener('click', displayInfo);
+document.addEventListener('DOMContentLoaded', displayInfo);

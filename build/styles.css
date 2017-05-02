@@ -31,6 +31,7 @@ nav{
   width: 60px;
   height: 60px;
   padding: 10px;
+  -webkit-app-region: no-drag;
 }
 .nav-title-txt{
   font-size: 1rem;

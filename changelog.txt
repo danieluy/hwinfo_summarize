@@ -8,8 +8,14 @@
 #   F - Bug fix                     #
 
 # ToDo
-	00000000 | T | Define a different style for output html summary
+	00000000 | T | Add dependencies info
+	00000000 | T | Add disclaimer and license
+	00000000 | T | Add author info
+	00000000 | T | Add proper message and error handlers
+	00000000 | T | Add icon
+	00000000 | T | Review the whole render process
 v0.1.0
+	20170502 | P | Added style for output html summary
 	20170428 | P | Added saving functionality
 	20170428 | R | New way to handle errors
 	20170427 | P | Working on outputting an html summary

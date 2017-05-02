@@ -6,6 +6,12 @@ module.exports = (function () {
 
   var output = document.getElementById('output');
 
+  function renderInfo(html) {
+    if (!html)
+      throw new Error('Missing argument. Expected html:String');
+    output.innerHTML = html;
+  }
+
   function renderFile(data) {
     if (!data)
       throw new Error('Missing argument. Expected data:Object');
@@ -16,7 +22,7 @@ module.exports = (function () {
     console.log('render(node)', node)
     if (!node)
       throw new Error('Missing argument. Expected node:Node');
-    output.innerHTML = '';
+    output.innerHTML = node.innerHTML;
     output.appendChild(node);
   }
 
@@ -133,6 +139,7 @@ module.exports = (function () {
 
   return {
     renderFile: renderFile,
-    stringifyNode: stringifyNode
+    stringifyNode: stringifyNode,
+    renderInfo: renderInfo
   }
 })();

@@ -39,7 +39,7 @@ module.exports = (function () {
   }
 
   function saveFile(file_name, file_content, successHandler, errorHandler) {
-    selectFolderAndWriteFile(file_name, '.html', file_content, 'text/html', successHandler, errorHandler);
+    selectFolderAndWriteFile(file_name + '_HWiNFO_Summary', '.html', file_content, 'text/html', successHandler, errorHandler);
   }
 
   function selectFolderAndWriteFile(file_name, file_extension, file_content, file_type, successHandler, errorHandler) {
