@@ -1,0 +1,15 @@
+body{
+  width: 640px;
+  height: 480px;
+  background-color: #fafafa;
+}
+body, html {
+  font-size: 90%;
+}
+.nav-actions{
+  width: 425px;
+}
+.output-wrapper{
+  height: 420px;
+  padding: 20px;
+}

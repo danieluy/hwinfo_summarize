@@ -8,13 +8,13 @@
 #   F - Bug fix                     #
 
 # ToDo
-	00000000 | T | Add dependencies info
-	00000000 | T | Add disclaimer and license
-	00000000 | T | Add author info
+	00000000 | T | Add original icon
 	00000000 | T | Add proper message and error handlers
-	00000000 | T | Add icon
-	00000000 | T | Review the whole render process
+	00000000 | T | Add batch opening and save functionality
+	00000000 | T | Consider refactor to Js ES6
 v0.1.0
+	20170503 | P | Minor UI tweaks
+	20170503 | P | Added independent about window
 	20170502 | P | Added style for output html summary
 	20170428 | P | Added saving functionality
 	20170428 | R | New way to handle errors

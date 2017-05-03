@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="styles-info.css" />
+  <link rel="stylesheet" type="text/css" href="roboto.css" />
+  <title>HWiNFO Summarize</title>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-title">
+      <img class="nav-title-img" id="btn-display-info" src="app-logo.png" alt="Application logo">
+      <h1 class="nav-title-txt">About this application</h1>
+    </div>
+    <div class="nav-actions">
+      <div class="app-actions">
+
+      </div>
+      <div class="window-actions">
+        <button class="window-action button" id="btn-close-info-window">
+          <svg height="15" viewBox="0 0 24 24" width="15" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="output-wrapper">
+
+    <h1>HWiNFO Summarize v0.1.0</h1>
+    <p>
+      Google Chrome application.
+    </p>
+    <p>
+      Summarize the HTM output files from the <a href="https://www.hwinfo.com/" target="_blank">HWiNFO application</a> to display
+      at a glance the most relevant information about your PC.
+    </p>
+    <p>
+      Save a summary file in standard HTML.
+    </p>
+    <h2>Author:</h2>
+    <p>
+      Daniel Sosa: <a href="http://www.danielsosa.uy/dev" target="_blank">www.danielsosa.uy/dev</a>
+    </p>
+    <h2>Dependencies:</h2>
+    <ul>
+      <li><a href="https://cheerio.js.org/" target="_blank">Cheerio</a></li>
+      <li><a href="https://fonts.google.com/specimen/Roboto" target="_blank">Roboto</a></li>
+    </ul>
+    <h2>Changelog:</h2>
+    <label>Version: 0.1.0</label>
+    <ul>
+      <li>UI refinements</li>
+      <li>Saving functionality</li>
+      <li>Frameless window plus personalized controls</li>
+      <li>Added Roboto</li>
+      <li>Global styles</li>
+      <li>Window not resizable and other UI tweaks</li>
+      <li>Started development</li>
+    </ul>
+    <label>Upcoming</label>
+    <ul>
+      <li>Original icon</li>
+      <li>Message and error handlers</li>
+      <li>Batch opening and save functionality</li>
+    </ul>
+    <h2>License:</h2>
+    <p>
+      <p>
+        MIT License
+      </p>
+      <p>
+        Copyright (c) 2017 danielsosauy
+      </p>
+      <p>
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation
+        files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use,
+        copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to
+        whom the Software is furnished to do so, subject to the following conditions:
+      </p>
+      <p>
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+      </p>
+      <p>
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+        OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+        HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+        ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+      </p>
+    </p>
+  </div>
+
+  <script src="info.js"></script>
+
+</body>
+
+</html>

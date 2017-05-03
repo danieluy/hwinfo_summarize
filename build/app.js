@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 97);
+/******/ 	return __webpack_require__(__webpack_require__.s = 96);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -10552,7 +10552,7 @@ Tokenizer.prototype._emitPartial = function(value){
 module.exports = Stream;
 
 var Parser = __webpack_require__(33),
-    WritableStream = __webpack_require__(93).Writable || __webpack_require__(98).Writable,
+    WritableStream = __webpack_require__(93).Writable || __webpack_require__(99).Writable,
     StringDecoder = __webpack_require__(23).StringDecoder,
     Buffer = __webpack_require__(2).Buffer;
 
@@ -11938,7 +11938,7 @@ util.inherits = __webpack_require__(1);
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(99);
+var debugUtil = __webpack_require__(100);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -13109,17 +13109,11 @@ module.exports = (function () {
 "use strict";
 
 
-const html_output_template = __webpack_require__(96);
+const html_output_template = __webpack_require__(97);
 
 module.exports = (function () {
 
   var output = document.getElementById('output');
-
-  function renderInfo(html) {
-    if (!html)
-      throw new Error('Missing argument. Expected html:String');
-    output.innerHTML = html;
-  }
 
   function renderFile(data) {
     if (!data)
@@ -13248,8 +13242,7 @@ module.exports = (function () {
 
   return {
     renderFile: renderFile,
-    stringifyNode: stringifyNode,
-    renderInfo: renderInfo
+    stringifyNode: stringifyNode
   }
 })();
 
@@ -32776,28 +32769,6 @@ function config (name) {
 
 /***/ }),
 /* 96 */
-/***/ (function(module, exports) {
-
-module.exports =
-'<html>' +
-'<head>' +
-  '<meta charset="utf-8">' +
-  '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-  '<link href="https: //fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">' +
-  '<title>pcnameplaceholder</title>' +
-  '<style>' +
-    '* { font-family: sans-serif; margin: 0; padding: 0; color: #333333; } body { padding: 20px; background-color: #eeeeee; } h1 { font-size: 2rem; margin: 20px 0; } .card { padding: 5px; margin-top: 10px; border-radius: 1px; box-shadow: 01px2pxrgba(0, 0, 0, 0.15); } h2 { font-size: 1.5rem; margin: 10px0; font-weight: 100; } label { font-size: .65rem; text-transform: uppercase; color: #333; font-weight: 500; } p { font-size: 1.0rem; padding: 5px 0; } ul, ol { padding: 5px 20px; }' +
-  '</style>' +
-'</head>' +
-'<body>' +
-  '<h1>HWiNFO Summary</h1>' +
-  'contentplaceholder' +
-'</body>' +
-'</html>';
-
-
-/***/ }),
-/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -32808,7 +32779,7 @@ var parser = __webpack_require__(44);
 var output = __webpack_require__(43);
 var btn_open_file = document.getElementById('btn-open-file');
 var btn_minimize_window = document.getElementById('btn-minimize-window');
-var btn_close_window = document.getElementById('btn-close-window');
+var btn_close_main_window = document.getElementById('btn-close-main-window');
 var btn_save_file = document.getElementById('btn-save-file');
 var btn_display_info = document.getElementById('btn-display-info');
 
@@ -32841,28 +32812,53 @@ function minimizeWindow() {
   chrome.app.window.current().minimize();
 }
 
-function displayInfo(){
-  output.renderInfo(__webpack_require__(100));
+function openInfoWindow (){
+  chrome.app.window.create('info.html', {
+    'innerBounds': {
+      'width': 640,
+      'height': 480
+    },
+    'resizable': false,
+    'frame': 'none'
+  });
 }
 
 // Event listeners
 btn_open_file.addEventListener('click', file.openFile.bind(null, onFileOpen, errorHandler));
 btn_minimize_window.addEventListener('click', minimizeWindow);
-btn_close_window.addEventListener('click', closeWindow);
-// Can't bind output.stringifyDOM to cache.input because at binding time cache.input is null
+btn_close_main_window.addEventListener('click', closeWindow);
 btn_save_file.addEventListener('click', function () {
+  // Can't bind output.stringifyDOM to cache.input because at binding time cache.input is null
   file.saveFile(cache.input.name, output.stringifyNode(cache.input), onFileSaved, errorHandler);
 });
-btn_display_info.addEventListener('click', displayInfo);
-document.addEventListener('DOMContentLoaded', displayInfo);
+btn_display_info.addEventListener('click', openInfoWindow);
+
+
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports) {
 
-/* (ignored) */
+module.exports =
+'<html>' +
+'<head>' +
+  '<meta charset="utf-8">' +
+  '<meta name="viewport" content="width=device-width, initial-scale=1">' +
+  '<link href="https: //fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic" rel="stylesheet" type="text/css">' +
+  '<title>pcnameplaceholder</title>' +
+  '<style>' +
+    '* { font-family: sans-serif; margin: 0; padding: 0; color: #333333; } body { padding: 20px; background-color: #eeeeee; } h1 { font-size: 2rem; margin: 20px 0; } .card { padding: 5px; margin-top: 10px; border-radius: 1px; box-shadow: 01px2pxrgba(0, 0, 0, 0.15); } h2 { font-size: 1.5rem; margin: 10px0; font-weight: 100; } label { font-size: .65rem; text-transform: uppercase; color: #333; font-weight: 500; } p { font-size: 1.0rem; padding: 5px 0; } ul, ol { padding: 5px 20px; }' +
+  '</style>' +
+'</head>' +
+'<body>' +
+  '<h1>HWiNFO Summary</h1>' +
+  'contentplaceholder' +
+'</body>' +
+'</html>';
+
 
 /***/ }),
+/* 98 */,
 /* 99 */
 /***/ (function(module, exports) {
 
@@ -32872,29 +32868,7 @@ document.addEventListener('DOMContentLoaded', displayInfo);
 /* 100 */
 /***/ (function(module, exports) {
 
-var license =
-'<p>MIT License</p>' +
-'<p>Copyright (c) 2017 danielsosauy</p>' +
-'<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>' +
-'<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>' +
-'<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>';
-
-module.exports = 
-'<div class="modal">' +
-  '<label>Author:</label>' +
-  '<p>' +
-    'Daniel Sosa: <a href="http://www.danielsosa.uy/dev" target="_blank">www.danielsosa.uy/dev</a>' +
-  '</p>' +
-  '<label>License:</label>' +
-  '<p>' +
-    license +
-  '</p>' +
-  '<label>Dependencies:</label>' +
-  '<ul>' +
-    '<li><a href="https://cheerio.js.org/" target="_blank">Cheerio</a></li>' +
-  '</ul>' +
-'</div>'
-
+/* (ignored) */
 
 /***/ })
 /******/ ]);
