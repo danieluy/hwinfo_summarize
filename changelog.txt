@@ -9,10 +9,13 @@
 
 # ToDo
 	00000000 | T | Add original icon
+	00000000 | T | Replace output about info link for the one created once the app is published
 	00000000 | T | Add proper message and error handlers
-	00000000 | T | Add batch opening and save functionality
+	00000000 | T | Add batch open and save functionality
 	00000000 | T | Consider refactor to Js ES6
 v0.1.0
+	20170504 | P | Added about info in output
+	20170504 | P | Minor output graphical tweaks
 	20170503 | P | Minor UI tweaks
 	20170503 | P | Added independent about window
 	20170502 | P | Added style for output html summary

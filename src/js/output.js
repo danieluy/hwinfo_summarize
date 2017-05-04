@@ -13,10 +13,9 @@ module.exports = (function () {
   }
 
   function render(node) {
-    console.log('render(node)', node)
     if (!node)
       throw new Error('Missing argument. Expected node:Node');
-    output.innerHTML = node.innerHTML;
+    output.innerHTML = '';
     output.appendChild(node);
   }
 
@@ -24,8 +23,8 @@ module.exports = (function () {
     if (!data)
       throw new Error('Missing argument. Expected data:Object');
     return html_output_template
-      .replace('pcnameplaceholder', data.name)
-      .replace('contentplaceholder', parseNode(data).innerHTML);
+      .replace('{pcnameplaceholder}', data.name)
+      .replace('{contentplaceholder}', parseNode(data).innerHTML);
   }
 
   function parseNode(data) {
@@ -75,21 +74,7 @@ module.exports = (function () {
     var processor_li = document.createElement('li');
     processor_label.textContent = 'Processor:';
     processor_data.textContent = data.processor.name;
-    processor_li.textContent = 'Cores: ' + data.processor.cores + ' x ' + data.processor.logical + ' ( physical x logical )';
-    processor.appendChild(processor_label);
-    processor.appendChild(processor_data);
-    processor_ul.appendChild(processor_li);
-    processor.appendChild(processor_ul);
-    processor.classList.add('card');
-
-    var processor = document.createElement('div');
-    var processor_label = document.createElement('label');
-    var processor_data = document.createElement('p');
-    var processor_ul = document.createElement('ul');
-    var processor_li = document.createElement('li');
-    processor_label.textContent = 'Processor:';
-    processor_data.textContent = data.processor.name;
-    processor_li.textContent = 'Cores: ' + data.processor.cores + ' x ' + data.processor.logical + ' ( physical x logical )';
+    processor_li.textContent = 'Packages: ' + data.processor.packages + ' Cores: ' + data.processor.cores + ' Logical: ' + data.processor.logical;
     processor.appendChild(processor_label);
     processor.appendChild(processor_data);
     processor_ul.appendChild(processor_li);
